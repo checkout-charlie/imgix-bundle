@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.6.0",
-        "sparwelt/imgix-lib": "^1.0.0"
+        "sparwelt/imgix-lib": "dev-master"
     },
     "autoload": {
         "psr-4": {
