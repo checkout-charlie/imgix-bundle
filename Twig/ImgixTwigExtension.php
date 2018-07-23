@@ -28,9 +28,10 @@ class ImgixTwigExtension extends AbstractExtension
     public function getFilters()
     {
         return array(
-            new TwigFilter('imgix_url', [$this, 'generateUrl']),
-            new TwigFilter('imgix_attr', [$this, 'generateAttributeValue']),
-            new TwigFilter('imgix_html', [$this, 'generateHtml']),
+            new TwigFilter('imgix_url', [$this, 'generateUrl'], ['is_safe' => ['html']]),
+            new TwigFilter('imgix_image', [$this, 'generateImage'], ['is_safe' => ['html']]),
+            new TwigFilter('imgix_attr', [$this, 'generateAttributeValue'], ['is_safe' => ['html']]),
+            new TwigFilter('imgix_html', [$this, 'generateHtml'], ['is_safe' => ['html']]),
         );
     }
 
@@ -40,43 +41,58 @@ class ImgixTwigExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('imgix_image', [$this, 'generateImage']),
+            new TwigFunction('imgix_url', [$this, 'generateUrl'], ['is_safe' => ['html']]),
+            new TwigFunction('imgix_image', [$this, 'generateImage'], ['is_safe' => ['html']]),
+            new TwigFunction('imgix_attr', [$this, 'generateAttributeValue'], ['is_safe' => ['html']]),
+            new TwigFunction('imgix_html', [$this, 'generateHtml'], ['is_safe' => ['html']]),
         ];
     }
 
     /**
      * @param string       $originalUrl
      * @param array|string $filtersOrConfigurationKey
+     * @param array        $extraFilters
+     *
+     * @return string
      */
-    public function generateUrl($originalUrl, $filtersOrConfigurationKey = [])
+    public function generateUrl($originalUrl, $filtersOrConfigurationKey = [], $extraFilters = [])
     {
-        $this->imgix->generateUrl($originalUrl, $filtersOrConfigurationKey);
+        return $this->imgix->generateUrl($originalUrl, $filtersOrConfigurationKey, $extraFilters);
     }
 
     /**
      * @param string       $originalUrl
      * @param array|string $filtersOrConfigurationKey
+     * @param array        $extraFilters
+     *
+     * @return string
      */
-    public function generrateAttribute($originalUrl, $filtersOrConfigurationKey = [])
+    public function generateAttributeValue($originalUrl, $filtersOrConfigurationKey = [], $extraFilters = [])
     {
-        $this->imgix->generateAttributeValue($originalUrl, $filtersOrConfigurationKey);
+        return $this->imgix->generateAttributeValue($originalUrl, $filtersOrConfigurationKey, $extraFilters);
     }
 
     /**
      * @param string       $originalUrl
      * @param array|string $attributesFiltersOrConfigurationKey
+     *
+     * @param array        $extraFilters
+     * @return string
      */
-    public function generateImage($originalUrl, $attributesFiltersOrConfigurationKey = [])
+    public function generateImage($originalUrl, $attributesFiltersOrConfigurationKey = [], $extraFilters = [])
     {
-        $this->imgix->generateImage($originalUrl, $attributesFiltersOrConfigurationKey);
+        return $this->imgix->generateImage($originalUrl, $attributesFiltersOrConfigurationKey, $extraFilters);
     }
 
     /**
      * @param string       $originalHtml
      * @param array|string $attributesFiltersOrConfigurationKey
+     * @param array        $extraFilters
+     *
+     * @return string
      */
-    public function convertHtml($originalHtml, $attributesFiltersOrConfigurationKey = [])
+    public function convertHtml($originalHtml, $attributesFiltersOrConfigurationKey = [], $extraFilters = [])
     {
-        $this->imgix->convertHtml($originalHtml, $attributesFiltersOrConfigurationKey);
+        return $this->imgix->convertHtml($originalHtml, $attributesFiltersOrConfigurationKey, $extraFilters);
     }
 }
