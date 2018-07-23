@@ -1,2 +1,12 @@
-parameters:
 services:
+  Sparwelt\ImgixLib\ImgixService:
+    factory: ['Sparwelt\ImgixLib\ImgixServiceFactory', 'createFromConfiguration']
+    arguments:
+      - ~ # will be filled in with cdn_configurations dynamically
+      - ~ # will be filled in with filters_configurations dynamically
+    public: true
+
+  Sparwelt\ImgixBundle\Twig\ImgixTwigExtension:
+    class: Sparwelt\ImgixBundle\Twig\ImgixTwigExtension
+    arguments: ['@Sparwelt\ImgixLib\ImgixService']
+    tags: ['twig.extension']
