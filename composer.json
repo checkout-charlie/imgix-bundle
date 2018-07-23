@@ -9,10 +9,10 @@
             "email": "federico.infanti@sparwelt.de"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.6.0",
-        "sparwelt/imgix-lib": "dev-master"
+        "sparwelt/imgix-lib": "dev-master@dev"
     },
     "autoload": {
         "psr-4": {
