@@ -22,4 +22,5 @@ matrix:
 cache: bundler
 
 install:
-  - composer require symfony/symfony:${SYMFONY_VERSION} --no-update
+  - composer require symfony/symfony:${SYMFONY_VERSION}
+  - composer install
