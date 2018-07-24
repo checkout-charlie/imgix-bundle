@@ -23,7 +23,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('cdn_configurations')
                     ->normalizeKeys(false)
                     ->isRequired()
-                    ->arrayPrototype()
+                    ->prototype('array')
                     ->isRequired()
                         ->children()
                             ->arrayNode('cdn_domains')
@@ -50,7 +50,7 @@ class Configuration implements ConfigurationInterface
                 ->end()
                 ->arrayNode('image_filters')
                     ->defaultValue([])
-                    ->variablePrototype()
+                    ->prototype('variable')
                     ->end()
                 ->end()
             ->end();

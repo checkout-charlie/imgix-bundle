@@ -1,6 +1,12 @@
+[![Build Status](https://travis-ci.org/sparwelt/imgix-bundle.svg?branch=master)](https://travis-ci.org/sparwelt/imgix-bundle)
+
 Imgix Bundle
 ===================
 
-# Title
-## Subtitle
-Description
+## Installation
+```bash
+composer require sparwelt/imgix-bundle
+```
+## Usage
+
+TBC
