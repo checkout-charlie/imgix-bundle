@@ -6,17 +6,17 @@ use Sparwelt\ImgixLib\ImgixService;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
+/**
+ * @author Federico Infanti <federico.infanti@sparwelt.de>
+ *
+ * @since  24.07.18 10:24
+ */
 class SparweltImgixExtensionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var SparweltImgixExtension
      */
     private $extension;
-
-    /**
-     * @var string
-     */
-    private $root;
 
     public function setUp()
     {

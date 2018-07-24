@@ -17,6 +17,9 @@ class ImgixTwigExtension extends AbstractExtension
     /** @var ImgixService */
     private $imgix;
 
+    /**
+     * @param ImgixService $imgix
+     */
     public function __construct(ImgixService $imgix)
     {
         $this->imgix = $imgix;
@@ -54,6 +57,8 @@ class ImgixTwigExtension extends AbstractExtension
      * @param array        $extraFilters
      *
      * @return string
+     *
+     * @throws \Sparwelt\ImgixLib\Exception\ResolutionException
      */
     public function generateUrl($originalUrl, $filtersOrConfigurationKey = [], $extraFilters = [])
     {
@@ -66,6 +71,8 @@ class ImgixTwigExtension extends AbstractExtension
      * @param array        $extraFilters
      *
      * @return string
+     *
+     * @throws \Sparwelt\ImgixLib\Exception\ResolutionException
      */
     public function generateAttributeValue($originalUrl, $filtersOrConfigurationKey = [], $extraFilters = [])
     {
@@ -75,8 +82,8 @@ class ImgixTwigExtension extends AbstractExtension
     /**
      * @param string       $originalUrl
      * @param array|string $attributesFiltersOrConfigurationKey
-     *
      * @param array        $extraFilters
+     *
      * @return string
      */
     public function generateImage($originalUrl, $attributesFiltersOrConfigurationKey = [], $extraFilters = [])

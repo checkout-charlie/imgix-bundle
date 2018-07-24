@@ -1,7 +1,7 @@
 {
     "name": "sparwelt/imgix-bundle",
     "type": "symfony-bundle",
-    "description": "",
+    "description": "Configurable url and responsive image generation bundle for Symfony and Twig",
     "license": "MIT",
     "authors": [
         {
@@ -9,10 +9,11 @@
             "email": "federico.infanti@sparwelt.de"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": ">=5.6.0",
-        "sparwelt/imgix-lib": "dev-master@dev"
+        "sparwelt/imgix-lib": "~0.1.0"
     },
     "autoload": {
         "psr-4": {

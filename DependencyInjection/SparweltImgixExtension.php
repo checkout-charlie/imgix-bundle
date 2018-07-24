@@ -9,7 +9,9 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
 /**
- * {@inheritdoc}
+ * @author Federico Infanti <federico.infanti@sparwelt.de>
+ *
+ * @since  24.07.18 10:24
  */
 class SparweltImgixExtension extends Extension
 {

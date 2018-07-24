@@ -7,6 +7,11 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
+/**
+ * @author Federico Infanti <federico.infanti@sparwelt.de>
+ *
+ * @since  24.07.18 10:24
+ */
 class ImgixExtensionTest extends \PHPUnit_Framework_TestCase
 {
     /**
