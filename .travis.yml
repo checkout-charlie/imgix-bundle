@@ -3,21 +3,21 @@ matrix:
   include:
   - name: "php 5.6 + sf 2"
     php: "5.6"
-    env: SYMFONY_VERSION="^2.0", PHPUNIT_VERSION=">=4.0"]
-  - name: "php 7.2 + sf 2"
-    php: "7.2"
-    env: SYMFONY_VERSION="^2.0", PHPUNIT_VERSION=">=4.0"]
+    env: SYMFONY_VERSION="^2.0", PHPUNIT_VERSION=">=5.0"]
+  - name: "php 7.1 + sf 2"
+    php: "7.1"
+    env: SYMFONY_VERSION="^2.0", PHPUNIT_VERSION=">=5.0"]
 
   - name: "php 5.6 + sf 3"
     php: "5.6"
     env: [SYMFONY_VERSION="^3.0", PHPUNIT_VERSION=">=5.0"]
-  - name: "php 7.2 + sf 3"
-    php: "7.2"
-    env: [SYMFONY_VERSION="^3.0", PHPUNIT_VERSION=">=7.0"]
+  - name: "php 7.1 + sf 3"
+    php: "7.1"
+    env: [SYMFONY_VERSION="^3.0", PHPUNIT_VERSION=">=5.0"]
 
-  - name: "php 7.2 + sf 4"
-    php: "7.2"
-    env: [SYMFONY_VERSION="^4.0", PHPUNIT_VERSION=">=7.0"]
+  - name: "php 7.1 + sf 4"
+    php: "7.1"
+    env: [SYMFONY_VERSION="^4.0", PHPUNIT_VERSION="=5.0"]
 
 cache: bundler
 
