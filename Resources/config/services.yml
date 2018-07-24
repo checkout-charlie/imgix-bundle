@@ -9,4 +9,5 @@ services:
   Sparwelt\ImgixBundle\Twig\ImgixTwigExtension:
     class: Sparwelt\ImgixBundle\Twig\ImgixTwigExtension
     arguments: ['@Sparwelt\ImgixLib\ImgixService']
-    tags: ['twig.extension']
+    tags:
+      - { name: twig.extension }
