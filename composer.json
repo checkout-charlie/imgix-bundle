@@ -1,9 +1,4 @@
 {
-  "http-basic": {
-    "github.com": {
-      "username": "fedinf",
-      "password": "dxqgF9Xq"
-    }},
     "repositories": [
       {
         "type": "vcs",
