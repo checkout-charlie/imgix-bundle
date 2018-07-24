@@ -1,4 +1,9 @@
 {
+  "http-basic": {
+    "github.com": {
+      "username": "fedinf",
+      "password": "dxqgF9Xq"
+    }},
     "repositories": [
       {
         "type": "vcs",
@@ -7,7 +12,7 @@
     ],
     "name": "sparwelt/imgix-bundle",
     "type": "symfony-bundle",
-    "description": "Configurable url and responsive image generation bundle for Symfony and Twig",
+    "description": "Provides generation and transformation of urls and responsive images for Symfony and Twig",
     "license": "MIT",
     "authors": [
         {
