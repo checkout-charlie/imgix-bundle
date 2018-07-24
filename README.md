@@ -1,5 +1,17 @@
 [![Build Status](https://travis-ci.org/sparwelt/imgix-bundle.svg?branch=master)](https://travis-ci.org/sparwelt/imgix-bundle)
 
+
+| php5.6 + sf2      | php7.1 + sf2      | php5.6 + sf3      | php7.1 + sf3      | php7.1 + sf4      |
+|-------------------|-------------------|-------------------|-------------------|-------------------|
+| [![Build1][1]][6] | [![Build2][2]][6] | [![Build3][3]][6] | [![Build4][4]][6] | [![Build5][5]][6] |
+
+[1]: https://travis-matrix-badges.herokuapp.com/repos/sparwelt/imgix-bundle/branches/master/1
+[2]: https://travis-matrix-badges.herokuapp.com/repos/sparwelt/imgix-bundle/branches/master/2
+[3]: https://travis-matrix-badges.herokuapp.com/repos/sparwelt/imgix-bundle/branches/master/3
+[4]: https://travis-matrix-badges.herokuapp.com/repos/sparwelt/imgix-bundle/branches/master/4
+[5]: https://travis-matrix-badges.herokuapp.com/repos/sparwelt/imgix-bundle/branches/master/5
+[6]: https://travis-ci.org/bjfish/grails-ci-build-matrix-example
+
 Imgix Bundle
 ===================
 
