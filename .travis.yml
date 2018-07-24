@@ -22,6 +22,5 @@ matrix:
 cache: bundler
 
 install:
-  - composer require symfony/symfony:${SYMFONY_VERSION}
-  - composer require phpunit/phpunit:${PHPUNIT_VERSION}
+  - composer require phpunit/phpunit:${PHPUNIT_VERSION} symfony/symfony:${SYMFONY_VERSION}
   - composer install
