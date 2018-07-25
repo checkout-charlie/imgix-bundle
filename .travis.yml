@@ -24,9 +24,7 @@ cache: bundler
 install:
   - composer require symfony/symfony:${SYMFONY_VERSION}
   - composer require phpunit/phpunit ${COVERAGE}
-
   - composer install
-
 
 after_success:
   - travis_retry php vendor/bin/php-coveralls

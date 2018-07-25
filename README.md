@@ -62,7 +62,81 @@ sparwelt_imgix:
       sign_key: 'mysignkey123'
       shard_stategy: 'cycle'
 ```
-### Filters configuration
+### Usage
+#### Url generation
+```twig
+<img src="{{ '/assets/test.png'|imgix_url({w: 100, max-h: 50, q: 85}) }}">
 
+returns:
+
+<img src="https://cdn1.imgix.net/assets/test.png?w=100&max-h=50&q=85">
+```
+#### Image generation
+
+```twig
+{{ imgix_image('/assets/test.png', {
+  src: {w: 100, max-h: 50},
+  srcset: {2x: {w: 200, max-h: 100}, 3x: {w: 300, max-h: 150}}},
+  sizes: 'auto'
+)}}
+
+returns:
+
+<img src="https://cdn1.imgix.net/assets/test.png?w=100&max-h=50"
+        srcset="https://cdn1.imgix.net/assets/test.png?w=200&max-h=100 2x, https://cdn1.imgix.net/assets/test.png?w=300&max-h=150 3x"
+        sizes="auto"
+        >
+```
+
+#### Attribute generation
+
+```twig
+<img data-srcset="{{ 'test.png'|imgix_attr({2x: {w: 200, max-h: 100}, 3x: {w: 300, max-h: 150}}) }}">
+
+returns:
+
+<img data-srcset="https://cdn1.imgix.net/test.png?w=200&max-h=100 2x, https://cdn1.imgix.net/test.png?w=300&max-h=150 3x">
+```
+
+#### Html conversion
+Simple conversion
+```twig
+
+{% set html = '<li><img src="/test.png" ng-src="/test2.png"><\li><li><img srcset="test3.png" data-srcset="/test4.png 2x, /test4.png 3x">' %} 
+{{ html|imgix_html }}
+
+returns:
+
+<li><img src="https://cdn1.imgix.net/test.png" ng-src="https://cdn1.imgix.net/test2.png"><\li><li><img src="https://cdn1.imgix.net/test3.png" data-srcset="https://cdn1.imgix.net/test4.png 2x, https://cdn1.imgix.net/test4.png 3x">
+```
+Attribute conversion
+```twig
+{% set html = '<li><img src="/test.png" ng-src="/test2.png"><\li><li><img data-srcset="/test3.png 2x, /test3.png 3x">' %} 
+{{ html|imgix_html{{src: {w: 10, h: 20}} }}
+
+returns:
+
+<li><img src="https://cdn1.imgix.net/test.png?w=10&h=20" ng-src="https://cdn1.imgix.net/test2.png"><\li><li><img data-srcset="https://cdn1.imgix.net/test3.png 2x, https://cdn1.imgix.net/test3.png 3x">
+```
+Advanced conversion (the filters params will be applied only for images that have the 'src' image)
+```twig
+{% set html = '<li><img src="/test.png" ng-src="/test2.png"><\li><li><img data-srcset="/test3.png 2x, /test3.png 3x">' %} 
+{{ html|imgix_html{{src: {w: 10, h: 20}}, srcset={} }}
+
+returns:
+
+<li><img src="https://cdn1.imgix.net/test.png?w=10&h=20" ng-src="https://cdn1.imgix.net/test2.png"><\li><li><img data-srcset="https://cdn1.imgix.net/test3.png 2x, https://cdn1.imgix.net/test3.png 3x">
+```
+
+### Working with preconfigured filters
+#### Basic
+```yaml
+sparwelt_imgix:
+  image_filters:
+    basic:
+      src: [max-w: 200, max-h: 100, q: 85]
+    responsive_thumbnail:
+      
+```
 TBC
 
