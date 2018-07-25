@@ -12,7 +12,7 @@ use Twig\TwigFunction;
  *
  * @since  24.07.18 10:24
  */
-class ImgixExtensionTest extends \PHPUnit_Framework_TestCase
+class ImgixExtensionTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var SparweltImgixExtension

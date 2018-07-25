@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
  *
  * @since  24.07.18 10:24
  */
-class SparweltImgixExtensionTest extends \PHPUnit_Framework_TestCase
+class SparweltImgixExtensionTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var SparweltImgixExtension
