@@ -5,10 +5,11 @@
     <testsuite name="Imgix Bundle Test Suite">
       <directory>./Tests/</directory>
     </testsuite>
-    <logging>
-      <log type="coverage-clover" target="build/logs/clover.xml"/>
-    </logging>
   </testsuites>
+
+  <logging>
+    <log type="coverage-clover" target="build/logs/clover.xml"/>
+  </logging>
 
   <filter>
     <whitelist>

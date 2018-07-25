@@ -19,6 +19,19 @@ Imgix Bundle
 ```bash
 composer require sparwelt/imgix-bundle
 ```
-## Usage
+## Configuration
+### Cdn configuration
+#### Basic
 
-TBC
+```yaml
+sparwelt_imgix:
+  cdn_configurations:
+    my_cdn:
+      cdn_domains: ['cdn1.imgix.net', 'cdn1.imgix.net']
+    my_other_cdn:
+      cdn_domains: ['other1.imgix.net', 'other2.imgix.net']
+```
+
+
+
+
