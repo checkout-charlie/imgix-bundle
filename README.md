@@ -118,25 +118,7 @@ returns:
 
 <li><img src="https://cdn1.imgix.net/test.png?w=10&h=20" ng-src="https://cdn1.imgix.net/test2.png"><\li><li><img data-srcset="https://cdn1.imgix.net/test3.png 2x, https://cdn1.imgix.net/test3.png 3x">
 ```
-Advanced conversion (the filters params will be applied only for images that have the 'src' image)
-```twig
-{% set html = '<li><img src="/test.png" ng-src="/test2.png"><\li><li><img data-srcset="/test3.png 2x, /test3.png 3x">' %} 
-{{ html|imgix_html{{src: {w: 10, h: 20}}, srcset={} }}
 
-returns:
 
-<li><img src="https://cdn1.imgix.net/test.png?w=10&h=20" ng-src="https://cdn1.imgix.net/test2.png"><\li><li><img data-srcset="https://cdn1.imgix.net/test3.png 2x, https://cdn1.imgix.net/test3.png 3x">
-```
-
-### Working with preconfigured filters
-#### Basic
-```yaml
-sparwelt_imgix:
-  image_filters:
-    basic:
-      src: [max-w: 200, max-h: 100, q: 85]
-    responsive_thumbnail:
-      
-```
-TBC
-
+# TBC
+# TBC
