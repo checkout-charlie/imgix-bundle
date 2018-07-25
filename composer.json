@@ -1,10 +1,4 @@
 {
-    "repositories": [
-      {
-        "type": "vcs",
-        "url": "https://github.com/sparwelt/imgix-lib"
-      }
-    ],
     "name": "sparwelt/imgix-bundle",
     "type": "symfony-bundle",
     "description": "Generate and transform urls and responsive images in Symfony and Twig",
@@ -19,7 +13,7 @@
     "prefer-stable": true,
     "require": {
         "php": ">=5.6.0",
-        "sparwelt/imgix-lib": "^0.1.0@dev",
+        "sparwelt/imgix-lib": "^0.1.2@dev",
         "symfony/symfony": "^2.0|^3.0|^4.0"
     },
     "autoload": {
