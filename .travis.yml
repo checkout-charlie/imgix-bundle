@@ -3,27 +3,27 @@ matrix:
   include:
   - name: "php 5.6 + sf 2"
     php: "5.6"
-    env: [SYMFONY_VERSION="^2.0"]
+    env: [SYMFONY_VERSION="^2.0", COVERAGE=""] #phpunit/phpcov is not compatible with symfony 2 console in any version
   - name: "php 7.1 + sf 2"
     php: "7.1"
-    env: [SYMFONY_VERSION="^2.0"]
+    env: [SYMFONY_VERSION="^2.0", COVERAGE=""] #phpunit/phpcov is not compatible with symfony 2 console in any version
 
   - name: "php 5.6 + sf 3"
     php: "5.6"
-    env: [SYMFONY_VERSION="^3.0"]
+    env: [SYMFONY_VERSION="^3.0", COVERAGE="php-coveralls/php-coveralls phpunit/phpcov"]
   - name: "php 7.1 + sf 3"
     php: "7.1"
-    env: [SYMFONY_VERSION="^3.0"]
+    env: [SYMFONY_VERSION="^3.0", COVERAGE="php-coveralls/php-coveralls phpunit/phpcov"]
 
   - name: "php 7.1 + sf 4"
     php: "7.1"
-    env: [SYMFONY_VERSION="^4.0"]
+    env: [SYMFONY_VERSION="^4.0", COVERAGE="php-coveralls/php-coveralls phpunit/phpcov"]
 
 cache: bundler
 
 install:
   - composer require symfony/symfony:${SYMFONY_VERSION}
-  - composer require phpunit/phpunit php-coveralls/php-coveralls phpunit/phpcov
+  - composer require phpunit/phpunit ${COVERAGE}
 
   - composer install
 
