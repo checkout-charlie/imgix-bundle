@@ -7,7 +7,7 @@
     ],
     "name": "sparwelt/imgix-bundle",
     "type": "symfony-bundle",
-    "description": "Provides generation and transformation of urls and responsive images for Symfony and Twig",
+    "description": "Generate and transform urls and responsive images in Symfony and Twig",
     "license": "MIT",
     "authors": [
         {
