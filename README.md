@@ -38,7 +38,7 @@ sparwelt_imgix:
 {# "https://my.imgix.net/dir/test.png?w=100&h=200" #}
 
 {# image generation #}
-{{ imgix_image('/dir/test.png', {'src: {w: 100, h: 200}}) }};
+{{ imgix_image('/dir/test.png', {src: {w: 100, h: 200}}) }};
 {# <img src="https://my.imgix.net/dir/test.png?w=100&h=200"> #}
 
 {# html conversion #}
