@@ -13,7 +13,7 @@
     "prefer-stable": true,
     "require": {
         "php": ">=5.6.0",
-        "sparwelt/imgix-lib": "^0.1.3@dev",
+        "sparwelt/imgix-lib": "^0.1.6",
         "symfony/symfony": "^2.0|^3.0|^4.0"
     },
     "autoload": {

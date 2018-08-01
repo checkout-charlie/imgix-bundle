@@ -98,8 +98,8 @@ class ImgixTwigExtension extends AbstractExtension
      *
      * @return string
      */
-    public function convertHtml($originalHtml, $attributesFiltersOrConfigurationKey = [], $extraFilters = [])
+    public function transformHtml($originalHtml, $attributesFiltersOrConfigurationKey = [], $extraFilters = [])
     {
-        return $this->imgix->convertHtml($originalHtml, $attributesFiltersOrConfigurationKey, $extraFilters);
+        return $this->imgix->transformHtml($originalHtml, $attributesFiltersOrConfigurationKey, $extraFilters);
     }
 }
