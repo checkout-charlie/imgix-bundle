@@ -43,7 +43,7 @@ sparwelt_imgix:
 
 {# html conversion #}
 {{ imgix_html('<li><img src="/test.png"><\li><li><img src="/test2.png">', {src: {w: 100, h:  200}}) }}
-{# <li><img src="https://my.imgix.net/test.png"><\li><li><img src="https://my.imgix.net/test2.png"> #}
+{# <li><img src="https://my.imgix.net/test.png?h=200&w=100"><\li><li><img src="https://my.imgix.net/test2.png?h=200&w=100"> #}
 ```
 
 ### Responsive usage
