@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "55fb4c2dc7b5a1336fe1036995615ddd",
+    "content-hash": "fbd82c89e08d2e63b57513294d3f734d",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -782,16 +782,16 @@
         },
         {
             "name": "sparwelt/imgix-lib",
-            "version": "0.1.6",
+            "version": "0.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sparwelt/imgix-lib.git",
-                "reference": "be2424f448c34e93106e9231a3e62296ee134d34"
+                "reference": "1c11c6670991148dae0fd50cdaece5d4d001e92f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sparwelt/imgix-lib/zipball/be2424f448c34e93106e9231a3e62296ee134d34",
-                "reference": "be2424f448c34e93106e9231a3e62296ee134d34",
+                "url": "https://api.github.com/repos/sparwelt/imgix-lib/zipball/1c11c6670991148dae0fd50cdaece5d4d001e92f",
+                "reference": "1c11c6670991148dae0fd50cdaece5d4d001e92f",
                 "shasum": ""
             },
             "require": {
@@ -819,7 +819,7 @@
             ],
             "description": "Generate and transform urls and responsive images.",
             "homepage": "https://github.com/sparwelt/imgix-lib",
-            "time": "2018-08-01T16:51:16+00:00"
+            "time": "2018-08-02T08:23:20+00:00"
         },
         {
             "name": "symfony/polyfill-apcu",
