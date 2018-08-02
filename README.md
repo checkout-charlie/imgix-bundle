@@ -12,7 +12,7 @@
 [5]: https://travis-matrix-badges.herokuapp.com/repos/sparwelt/imgix-bundle/branches/master/5
 [6]: https://travis-ci.org/sparwelt/imgix-bundle
 
-Imgix Bundle
+Imgix Bundle for Symfony
 ===================
 
 ## Installation
