@@ -65,6 +65,9 @@ class SparweltImgixExtensionTest extends \PHPUnit\Framework\TestCase
                         'cdn_domains' => ['sparwelt-cdn-assets-development.imgix.net'],
                         'source_domains' => ['s3-static-dev.sparwelt.de', 'sparwelt.test', null],
                         'path_patterns' => ['^[/]?media/', '^[/]?uploads/'],
+                        'use_ssl' => true,
+                        'default_query_params' => ['cb' => 1234],
+                        'generate_filter_params' => true,
                     ],
                 ],
                 'image_filters' => [

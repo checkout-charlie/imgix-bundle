@@ -87,6 +87,7 @@ sparwelt_imgix:
        data-srcset="https://test.imgix.net/dir/test.png?h=60&w=120 100w, https://test.imgix.net/dir/test.png?h=90&w=180 500w"
        data-sizes="auto" 
        class="lazyload">
+#}
 ```
 
 ### Named filters
@@ -130,69 +131,82 @@ sparwelt_imgix:
 {# ... replaces all images with responsive ones #}
 ```
 
-### Multiple cdn domains
-Different cdn domains and configurations can be specified.
-The resolver will start evaluating the first configuration and will pass to the next until a suitable match is found.
-If multiple domains are specified for the same configuration entry, they will be rotated (this is known as 'domain sharding', the default strategy is 'crc')
+### Multiple cdn configurations
+The image path will be evaluate against the configurations, from top to bottom, until a suitable match is found. Multiple domains can be specified for the same configuration (domain sharding).
 ```yaml
 sparwelt_imgix:
   cdn_configurations:
-        # mathches images whose source domain is 'mysite.com' (including subdomains)
-        # AND path begins with 'uploads/' OR 'media/'
+        # matches images with source domain 'mysite.com' (including subdomains)
+        # AND path beginning with 'uploads/' OR 'media/'
         # Relative urls won't match
         source_domains_and_pattern:
-            cdn_domains: ['source-domain-and-pattern.imgix.net']
+            cdn_domains: ['my-cdn-1.imgix.net']
             source_domains: ['mysite.com']
             path_patterns: ['^[/]uploads/', '^[/]media/']
 
-        # matches images whose source domain is exactly 'www3.mysite.com' OR 'www4.mysite.com'
+        # matches images with source domain exactly 'www3.mysite.com' OR 'www4.mysite.com'
         # Relative urls won't match
         source_sub_domain:
-            cdn_domains: ['source-sub-domain.imgix.net']
+            cdn_domains: ['my-cdn-2.imgix.net']
             source_domains: ['www3.mysite.com', 'www4.mysite.com']
 
-        # matches images whose source domain is 'mysite.com', including subdomains
+        # matches images with source domain 'mysite.com' (including subdomains)
         # Relative urls won't match
         source_domains:
-            cdn_domains: ['source-domain.imgix.net']
+            cdn_domains: ['my-cdn-3.imgix.net']
             source_domains: ['mysite.com']
 
-        # matches images whose source domain is 'mysite.com', including subdomains
+        # matches images with source domain 'mysite.com' (including subdomains)
         # AND relative urls (because of the 'null')
         source_domains_and_null:
-            cdn_domains: ['source-domain.imgix.net']
+            cdn_domains: ['my-cdn-4.imgix.net']
             source_domains: ['mysite.com', null]
 
-        # Matches relative urls only, whose path begins with 'uploads/'.
+        # matches relative urls only, where path begins with 'uploads/'.
         # Absolute urls won't match.
         pattern:
-            cdn_domains: ['pattern.imgix.net']
+            cdn_domains: ['my-cdn-5.imgix.net']
             path_patterns: ['^[/]pattern/']
 
-        # matches relative urls only, whose path begins with 'sign-key/'.
-        # Appends sign-key to the generated url (recommended)
+        # matches relative urls only, where path begins with 'sign-key/'.
+        # appends sign-key to the generated url (recommended)
         sign_key:
-            cdn_domains: ['sign-key.imgix.net']
+            cdn_domains: ['my-cdn-6.imgix.net']
             path_patterns: ['[^]/sign-key/']
             sign_key: '12345'
 
-        # Matches relative urls only, whose path begins with 'shard-crc/'.
+        # matches relative urls only, where path begins with 'shard-crc/'.
         # Will choose the cdn domains by the hash of the path (recommended)
         shard_crc:
-            cdn_domains: ['shard-crc1.imgix.net', 'shard-crc2.imgix.net']
+            cdn_domains: ['my-cdn-7.imgix.net', 'my-cdn-8.imgix.net']
             path_patterns: ['^[/]shard-crc/']
             shard_strategy: 'crc' #default
 
-        # Matches relative urls only, whose path begins with 'shard-cycle/'.
+        # matches relative urls only, where path begins with 'shard-cycle/'.
         # Will rotate between the 2 cdn domains (increase costs)
         shard_cycle:
-            cdn_domains: ['shard-cycle1.imgix.net', 'shard-cycle2.imgix.net']
+            cdn_domains: ['my-cdn-9.imgix.net', 'my-cdn-10.imgix.net']
             path_patterns: ['^[/]shard-cycle/']
             shard_strategy: 'cycle'
-        ],
 
-        # Matches all relative urls.
+        # default parameters can be added, useful for cache bursting or automatic formatting
+        default_parameters:
+            cdn_domains: ['my-cdn-11.imgix.net']
+            path_patterns: ['^[/]shard-cycle/']
+            default_query_params:
+              cb: '1234'
+              auto: 'quality'
+
+        # disable parameters generation
+        # (useful for development/testing environments)
+        bypass_dev:
+            cdn_domains: ['my-dev-domain.local']
+            source_domains: ['my-dev-domain.local']
+            generate_filter_params: false,
+            use_ssl: false
+
+        # matches all relative urls
         my_default:
-            cdn_domains: ['default.imgix.net']
+            cdn_domains: ['my-cdn-12.imgix.net']
 
 ```
