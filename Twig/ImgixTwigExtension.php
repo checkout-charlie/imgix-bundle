@@ -34,7 +34,7 @@ class ImgixTwigExtension extends AbstractExtension
             new TwigFilter('imgix_url', [$this, 'generateUrl'], ['is_safe' => ['html']]),
             new TwigFilter('imgix_image', [$this, 'generateImage'], ['is_safe' => ['html']]),
             new TwigFilter('imgix_attr', [$this, 'generateAttributeValue'], ['is_safe' => ['html']]),
-            new TwigFilter('imgix_html', [$this, 'generateHtml'], ['is_safe' => ['html']]),
+            new TwigFilter('imgix_html', [$this, 'transformHtml'], ['is_safe' => ['html']]),
         );
     }
 
@@ -47,7 +47,7 @@ class ImgixTwigExtension extends AbstractExtension
             new TwigFunction('imgix_url', [$this, 'generateUrl'], ['is_safe' => ['html']]),
             new TwigFunction('imgix_image', [$this, 'generateImage'], ['is_safe' => ['html']]),
             new TwigFunction('imgix_attr', [$this, 'generateAttributeValue'], ['is_safe' => ['html']]),
-            new TwigFunction('imgix_html', [$this, 'generateHtml'], ['is_safe' => ['html']]),
+            new TwigFunction('imgix_html', [$this, 'transformHtml'], ['is_safe' => ['html']]),
         ];
     }
 
