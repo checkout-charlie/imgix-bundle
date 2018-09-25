@@ -36,7 +36,7 @@ class SparweltImgixExtensionTest extends \PHPUnit\Framework\TestCase
         $configs = [
             'sparwelt_imgix' => [
                 'logger' => $logger,
-                'logLevel' => $logLevel,
+                'log_level' => $logLevel,
                 'cdn_configurations' => [
                     'uploads' => [
                         'cdn_domains' => ['sparwelt-cdn-assets-development.imgix.net'],
