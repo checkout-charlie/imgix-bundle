@@ -20,6 +20,12 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode('logger')
+                    ->defaultNull()
+                ->end()
+                ->scalarNode('log_level')
+                    ->defaultValue('notice')
+                ->end()
                 ->arrayNode('cdn_configurations')
                     ->normalizeKeys(false)
                     ->isRequired()

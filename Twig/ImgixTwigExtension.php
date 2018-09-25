@@ -2,6 +2,10 @@
 
 namespace Sparwelt\ImgixBundle\Twig;
 
+use Psr\Log\LoggerInterface;
+use Psr\Log\LogLevel;
+use Psr\Log\NullLogger;
+use Sparwelt\ImgixLib\Exception\ResolutionException;
 use Sparwelt\ImgixLib\ImgixService;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
@@ -16,13 +20,25 @@ class ImgixTwigExtension extends AbstractExtension
 {
     /** @var ImgixService */
     private $imgix;
+    /**
+     * @var LoggerInterface
+     */
+    private $logger;
+    /**
+     * @var string
+     */
+    private $logLevel;
 
     /**
-     * @param ImgixService $imgix
+     * @param ImgixService         $imgix
+     * @param LoggerInterface|null $logger
+     * @param string               $logLevel
      */
-    public function __construct(ImgixService $imgix)
+    public function __construct(ImgixService $imgix, LoggerInterface $logger = null, $logLevel = LogLevel::NOTICE)
     {
         $this->imgix = $imgix;
+        $this->logger = null !== $logger ? $logger : new NullLogger();
+        $this->logLevel = $logLevel;
     }
 
     /**
@@ -62,7 +78,12 @@ class ImgixTwigExtension extends AbstractExtension
      */
     public function generateUrl($originalUrl, $filtersOrConfigurationKey = [], $extraFilters = [])
     {
-        return $this->imgix->generateUrl($originalUrl, $filtersOrConfigurationKey, $extraFilters);
+        try {
+            return $this->imgix->generateUrl($originalUrl, $filtersOrConfigurationKey, $extraFilters);
+        } catch (ResolutionException $e) {
+            $this->logger->log($this->logLevel, $e->getMessage());
+            return '';
+        }
     }
 
     /**
@@ -76,7 +97,12 @@ class ImgixTwigExtension extends AbstractExtension
      */
     public function generateAttributeValue($originalUrl, $filtersOrConfigurationKey = [], $extraFilters = [])
     {
-        return $this->imgix->generateAttributeValue($originalUrl, $filtersOrConfigurationKey, $extraFilters);
+        try {
+            return $this->imgix->generateAttributeValue($originalUrl, $filtersOrConfigurationKey, $extraFilters);
+        } catch (ResolutionException $e) {
+            $this->logger->log($this->logLevel, $e->getMessage());
+            return '';
+        }
     }
 
     /**
@@ -88,7 +114,12 @@ class ImgixTwigExtension extends AbstractExtension
      */
     public function generateImage($originalUrl, $attributesFiltersOrConfigurationKey = [], $extraFilters = [])
     {
-        return $this->imgix->generateImage($originalUrl, $attributesFiltersOrConfigurationKey, $extraFilters);
+        try {
+            return $this->imgix->generateImage($originalUrl, $attributesFiltersOrConfigurationKey, $extraFilters);
+        } catch (ResolutionException $e) {
+            $this->logger->log($this->logLevel, $e->getMessage());
+            return '';
+        }
     }
 
     /**

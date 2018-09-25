@@ -58,8 +58,16 @@ class SparweltImgixExtensionTest extends \PHPUnit\Framework\TestCase
 
     public function testCdnConfigurationWithFilters()
     {
+        $logger = $this->getMockBuilder(\Psr\Log\LoggerInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $logLevel = \Psr\Log\LogLevel::WARNING;
+
         $configs = [
             'sparwelt_imgix' => [
+                'logger' => $logger,
+                'logLevel' => $logLevel,
                 'cdn_configurations' => [
                     'uploads' => [
                         'cdn_domains' => ['sparwelt-cdn-assets-development.imgix.net'],

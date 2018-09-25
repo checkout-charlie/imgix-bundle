@@ -8,6 +8,9 @@ services:
 
   Sparwelt\ImgixBundle\Twig\ImgixTwigExtension:
     class: Sparwelt\ImgixBundle\Twig\ImgixTwigExtension
-    arguments: ['@Sparwelt\ImgixLib\ImgixService']
+    arguments:
+      - '@Sparwelt\ImgixLib\ImgixService'
+      - ~ # will be filled in with logger dynamically
+      - ~ # will be filled in with log_level dynamically
     tags:
       - { name: twig.extension }

@@ -2,6 +2,7 @@
 
 namespace Sparwelt\ImgixBundle\DependencyInjection;
 
+use Sparwelt\ImgixBundle\Twig\ImgixTwigExtension;
 use Sparwelt\ImgixLib\ImgixService;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -32,5 +33,9 @@ class SparweltImgixExtension extends Extension
         $definition = $container->getDefinition(ImgixService::class);
         $definition->replaceArgument(0, $config['cdn_configurations']);
         $definition->replaceArgument(1, $config['image_filters']);
+
+        $definition = $container->getDefinition(ImgixTwigExtension::class);
+        $definition->replaceArgument(1, $config['logger']);
+        $definition->replaceArgument(2, $config['logger_level']);
     }
 }
