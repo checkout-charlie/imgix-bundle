@@ -36,6 +36,6 @@ class SparweltImgixExtension extends Extension
 
         $definition = $container->getDefinition(ImgixTwigExtension::class);
         $definition->replaceArgument(1, $config['logger']);
-        $definition->replaceArgument(2, $config['logger_level']);
+        $definition->replaceArgument(2, $config['log_level']);
     }
 }
