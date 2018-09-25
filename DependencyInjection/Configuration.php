@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('logger')
+                ->variableNode('logger')
                     ->defaultNull()
                 ->end()
                 ->scalarNode('log_level')
