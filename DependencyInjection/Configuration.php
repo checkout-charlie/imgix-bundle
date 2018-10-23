@@ -33,6 +33,7 @@ class Configuration implements ConfigurationInterface
                     ->isRequired()
                         ->children()
                             ->arrayNode('cdn_domains')
+                                ->performNoDeepMerging()
                                 ->requiresAtLeastOneElement()
                                 ->prototype('scalar')->end()
                             ->end()
